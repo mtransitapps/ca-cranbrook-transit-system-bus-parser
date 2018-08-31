@@ -147,20 +147,11 @@ public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 								"170427", // <> == Northbound 21st Ave N at Kootenay St N
 								"170428", // <> == Eastbound 12th St N at 21st Ave N
 								"170429", // <> != Southbound Tamarack Mall Access
+								"170426", // <>
+								"170424", // !=
+								"170416", // !=
 								"170538", // <> == Eastbound 12th St N at mall access
 								"170531", // <> == Eastbound 12th St N at Kokanee Dr N
-								"170414", // <> Southbound Kootenay St N at 12th St N
-								"170415", // <> Westbound Kootenay St N at McLeary Cres N
-								"170417", // <> Southbound 24th at McLeary Cres N
-								"170420", // <> Southbound 24th at 7th
-								"170421", // <> Westbound 6th at 23rd
-								"170423", // <> Westbound 6th at 21st
-								"170425", // <> Northbound Victoria Ave N at 8th St N
-								"170427", // <> == Northbound 21st Ave N at Kootenay St N
-								"170428", // <> == Eastbound 12th St N at 21st Ave N
-								"170538", // <> == Eastbound 12th St N at mall access
-								"170531", // <> == Eastbound 12th St N at Kokanee Dr N
-								"170413", // == Northbound Kootenay St N at 12th St N
 								"170409", // Westbound Cranbrook Mall Access Rd
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
@@ -171,21 +162,14 @@ public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 								"170405", // != Northbound Kokanee at Kelowna Cres
 								"170412", // != Southbound 30th at Mt Fisher Dr
 								"170414", // <> Southbound Kootenay St N at 12th St N
-								"170415", // <> Westbound Kootenay St N at McLeary Cres N
-								"170417", // <> Southbound 24th at McLeary Cres N
-								"170420", // <> Southbound 24th at 7th
-								"170421", // <> Westbound 6th at 23rd
-								"170423", // <> Westbound 6th at 21st
-								"170425", // <> Northbound Victoria Ave N at 8th St N
+								"170425", // != Northbound Victoria Ave N at 8th St N
 								"170427", // <> Northbound 21st Ave N at Kootenay St N
 								"170428", // <> Eastbound 12th St N at 21st Ave N
-								"170429", // <> Southbound Tamarack Mall Access
-								"170426", // == Southbound 21st Ave N at Kootenay St N
 								"170530", // != Southbound Kokanee Dr N at 12th St N
 								"170429", // <> Southbound Tamarack Mall Access
 								"170426", // == Southbound 21st Ave N at Kootenay St N
-								"170508", // == Westbound Kootenay St N at Victoria Ave N
-								"170409", // Westbound Cranbrook Mall Access Rd
+								"170508", // != Westbound Kootenay St N at Victoria Ave N
+								"170545", // Westbound Cranbrook Mall Access Rd
 						})) //
 				.compileBothTripSort());
 		map2.put(2L, new RouteTripSpec(2L, //
