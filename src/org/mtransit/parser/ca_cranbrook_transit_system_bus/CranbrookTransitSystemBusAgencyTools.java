@@ -27,8 +27,8 @@ import org.mtransit.parser.mt.data.MRoute;
 import org.mtransit.parser.mt.data.MTrip;
 import org.mtransit.parser.mt.data.MTripStop;
 
-// https://bctransit.com/*/footer/open-data
-// https://bctransit.com/servlet/bctransit/data/GTFS - Cranbrook
+// https://www.bctransit.com/open-data
+// https://www.bctransit.com/data/gtfs/internet/CRA-GTFS-20180831-20190901_v20180831.zip
 public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 
 	public static void main(String[] args) {
