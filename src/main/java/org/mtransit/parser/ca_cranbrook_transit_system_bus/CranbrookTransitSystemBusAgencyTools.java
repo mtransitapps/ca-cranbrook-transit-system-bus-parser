@@ -87,6 +87,10 @@ public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 			case 7: return "27A8DD";
 			case 14: return "E91A8B";
 			case 20: return "AC419C";
+			case 22: return null; // TODO ?
+			case 31: return null; // TODO ?
+			case 32: return null; // TODO ?
+			case 41: return null; // TODO ?
 			// @formatter:on
 			}
 			throw new MTLog.Fatal("Unexpected route color for %s!", gRoute);
