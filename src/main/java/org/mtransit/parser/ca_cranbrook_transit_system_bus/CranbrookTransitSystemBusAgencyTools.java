@@ -14,7 +14,10 @@ import org.mtransit.parser.mt.data.MAgency;
 import java.util.regex.Pattern;
 
 // https://www.bctransit.com/open-data
-// https://www.bctransit.com/data/gtfs/cranbrook.zip
+// https://www.bctransit.com/cranbrook/home
+// https://www.bctransit.com/columbia-valley/home
+// https://www.bctransit.com/kimberley/home
+// https://www.bctransit.com/elk-valley/home
 public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 
 	public static void main(@NotNull String[] args) {
@@ -74,28 +77,27 @@ public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 
 	@Nullable
 	@Override
-	public String getRouteColor(@NotNull GRoute gRoute, @NotNull MAgency agency) {
-		if (StringUtils.isEmpty(gRoute.getRouteColor())) {
-			int rsn = Integer.parseInt(gRoute.getRouteShortName());
-			switch (rsn) {
-			// @formatter:off
-			case 1: return "0D4C85";
-			case 2: return "86C636";
-			case 3: return "F18021";
-			case 4: return "03A14D";
-			case 5: return "FECE0E";
-			case 7: return "27A8DD";
-			case 14: return "E91A8B";
-			case 20: return "AC419C";
-			case 22: return null; // TODO ?
-			case 31: return null; // TODO ?
-			case 32: return null; // TODO ?
-			case 41: return null; // TODO ?
-			// @formatter:on
-			}
-			throw new MTLog.Fatal("Unexpected route color for %s!", gRoute);
+	public String provideMissingRouteColor(@NotNull GRoute gRoute) {
+		int rsn = Integer.parseInt(gRoute.getRouteShortName());
+		switch (rsn) {
+		// @formatter:off
+		case 1: return "0D4C85";
+		case 2: return "86C636";
+		case 3: return "F18021";
+		case 4: return "03A14D";
+		case 5: return "FECE0E";
+		case 7: return "27A8DD";
+		case 14: return "E91A8B";
+		case 20: return "AC419C";
+		case 21: return "014A8C"; // Kimberley TS
+		case 22: return "8DCD3E"; // Kimberley TS
+		case 23: return "F68B1F"; // Kimberley TS
+		case 31: return "014A8C"; // Columbia Valley TS
+		case 32: return "8DCD3E"; // Columbia Valley TS
+		case 41: return "014A8C"; // Elk Valley TS
+		// @formatter:on
 		}
-		return super.getRouteColor(gRoute, agency);
+		throw new MTLog.Fatal("Unexpected route color for %s!", gRoute);
 	}
 
 	@Override
