@@ -5,7 +5,6 @@ import static org.mtransit.commons.StringUtils.EMPTY;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mtransit.commons.CleanUtils;
-import org.mtransit.commons.StringUtils;
 import org.mtransit.parser.DefaultAgencyTools;
 import org.mtransit.parser.MTLog;
 import org.mtransit.parser.gtfs.data.GRoute;
@@ -14,10 +13,7 @@ import org.mtransit.parser.mt.data.MAgency;
 import java.util.regex.Pattern;
 
 // https://www.bctransit.com/open-data
-// https://www.bctransit.com/cranbrook/home
-// https://www.bctransit.com/columbia-valley/home
-// https://www.bctransit.com/kimberley/home
-// https://www.bctransit.com/elk-valley/home
+// https://www.bctransit.com/cranbrook/home ONLY
 public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 
 	public static void main(@NotNull String[] args) {
@@ -35,12 +31,12 @@ public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 		return "Cranbrook TS";
 	}
 
-	private static final String AGENCY_ID = "27"; // Cranbrook Transit System only
-
-	@Nullable
 	@Override
-	public String getAgencyId() {
-		return AGENCY_ID;
+	public boolean excludeRoute(@NotNull GRoute gRoute) {
+		if (Integer.parseInt(gRoute.getRouteShortName()) >= 20) {
+			return EXCLUDE; // not Cranbrook (Columbia Valley, Elk Valley or Kimberley)
+		}
+		return super.excludeRoute(gRoute);
 	}
 
 	@NotNull
@@ -56,7 +52,12 @@ public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 
 	@Override
 	public boolean useRouteShortNameForRouteId() {
-		return true;
+		return false; // route ID used by GTFS RT
+	}
+
+	@Override
+	public @Nullable String getRouteIdCleanupRegex() {
+		return "\\-[A-Z]+$";
 	}
 
 	@Override
@@ -78,7 +79,7 @@ public class CranbrookTransitSystemBusAgencyTools extends DefaultAgencyTools {
 	@Nullable
 	@Override
 	public String provideMissingRouteColor(@NotNull GRoute gRoute) {
-		int rsn = Integer.parseInt(gRoute.getRouteShortName());
+		final int rsn = Integer.parseInt(gRoute.getRouteShortName());
 		switch (rsn) {
 		// @formatter:off
 		case 1: return "0D4C85";
